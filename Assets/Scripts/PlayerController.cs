@@ -20,15 +20,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Check if the game has started
         if (!PlayerManager.isGameStarted)
             return;
 
+        //While speed is less than max speed, increase speed
         if(forwardSpeed < maxSpeed)
             forwardSpeed += 0.2f * Time.deltaTime;
 
         direction.z = forwardSpeed;
         // Inputs for the Lane
 
+        //Move right
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             desiredLane++;
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
                 desiredLane = 2;
         }
 
+        //Move left
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             desiredLane--;
@@ -63,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        //Check if the obstacle hit has the tag obstacle
         if (hit.transform.tag == "Obstacle")
         {
             //Debug.Log("hit");

@@ -33,6 +33,7 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    //Spawns the next tile
     public void SpawnTile(int tileIndex)
     {
         GameObject go = Instantiate(tilePrefabs[tileIndex],transform.forward*zSpawn,transform.rotation);
@@ -40,6 +41,7 @@ public class TileManager : MonoBehaviour
         zSpawn += tileLength;
     }
 
+    //Deletes the oldest tile to remove clutter
     private void DeleteTile()
     {
         Destroy(activeTiles[0]);
