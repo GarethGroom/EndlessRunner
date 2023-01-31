@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 direction;
-    public float forwardSpeed;
-    public float maxSpeed;
+    public float forwardSpeed = 10;
+    public float maxSpeed = 100;
 
     private int desiredLane = 1; //0 Left | 1 Middle | 2 Right
     public float laneDistance = 4; //Distance between 2 lanes
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.transform.tag == "Obstacle")
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             PlayerManager.gameOver = true;
             PlayerManager.isGameStarted = false;
         }
